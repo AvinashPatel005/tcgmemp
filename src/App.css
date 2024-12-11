@@ -1,0 +1,142 @@
+.App {
+  text-align: center;
+  display: grid;
+  grid-template-columns: 0fr 1fr 0.4fr;
+  color: white;
+}
+.game{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); 
+  justify-items: center;
+  align-items: center;
+  perspective: 1000px;
+  width: fit-content;
+}
+.card img{
+  width: 130px;
+}
+
+.game-info{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+  padding: 15px 0;
+  border-top: 2px solid white;
+}
+.game-heading{
+  margin-top:30px;
+}
+.card {
+  width: 130px;
+  height: 180px;
+  margin: 10px;
+  position: relative;
+  transform-style: preserve-3d; 
+  transition:all 2000ms ease-in;
+  cursor: pointer;
+  display: inline-block;
+}
+.card.unselected :hover{
+  transform: rotate3d(1,1,0,10deg);
+}
+.unselected{
+  animation: rotate1 0.6s ease forwards;
+}
+.selected{
+  animation: rotate 0.6s ease forwards;
+  cursor:not-allowed;
+}
+@keyframes rotate {
+  from{
+      transform: rotateY(0deg); 
+  }
+  to{
+     transform: rotateY(180deg); 
+  }
+}
+@keyframes rotate1 {
+  from{
+      transform: rotateY(180deg); 
+  }
+  to{
+     transform: rotateY(0deg); 
+  }
+}
+
+
+.card-front,
+.card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden; 
+}
+
+.card-front {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-back {
+  transform: rotateY(180deg); 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sidebar{
+  border-right: 1px solid white;
+  height: 100vh;
+  display: flex;
+}
+.sidebar .expanded{
+
+  display: flex;
+  flex-direction: column;
+}
+.logo{
+  width:100px
+}
+
+a{
+  color: white;
+  text-decoration: none;
+  display: block;
+}
+a:visited{
+  color: aliceblue;
+}
+
+.right-pane{
+  border-left: 2px solid white;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  gap: 30px;
+}
+.right-pane .tutorial ol{
+  text-align: justify;
+}
+.board{
+  display: flex;
+  flex-direction: column;
+  gap:10px
+}
+.leaderboard{
+  border-collapse: collapse;
+  border-spacing: 0; 
+}
+.leaderboard td,th{
+  padding: 10px;
+  border: 1px solid gray;
+  
+}
